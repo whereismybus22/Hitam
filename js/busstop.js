@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         reverseGeocode(pos.lat, pos.lng);
       });
     }
-    showLoader();
+    hideLoader();
   });
 
   document.getElementById("refresh").addEventListener("click", function () {
