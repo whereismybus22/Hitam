@@ -6,7 +6,7 @@ const cancelBtn = document.getElementById("cancelBtn");
 
 let selectedRoute = localStorage.getItem("defaultBusRoute");
 if (selectedRoute) {
-    selectedRoute = `Route No ${selectedRoute.replace("route", "")}`; 
+    selectedRoute = `Route No ${selectedRoute.replace("route", "")}`;
 }
 
 const busSelectSave = document.getElementById("busSelectSave");
@@ -20,14 +20,35 @@ const ackCancelok = document.getElementById("ackCancelok");
 const busRoutes = [
     ["route1", "Route 1"],
     ["route2", "Route 2"],
-    ["route3", "Route 3"]
+    ["route3", "Route 3"],
+    ["route4", "Route 4"],
+    ["route5", "Route 5"],
+    ["route6", "Route 6"],
+    ["route7", "Route 7"],
+    ["route8", "Route 8"],
+    ["route9", "Route 9"],
+    ["route10", "Route 10"],
+    ["route11", "Route 11"],
+    ["route12", "Route 12"],
+    ["route13", "Route 13"],
+    ["route14", "Route 14"],
+    ["route15", "Route 15"],
+    ["route16", "Route 16"],
+    ["route17", "Route 17"],
+    ["route18", "Route 18"],
+    ["route19", "Route 19"],
+    ["route20", "Route 20"],
+    ["route21", "Route 21"],
+    ["route22", "Route 22"],
+    ["route23", "Route 23"]
+
 ];
 
 function renderRoutes(filter = "") {
     busList.innerHTML = "";
 
     busRoutes
-        .filter(route => route[1].toLowerCase().includes(filter.toLowerCase())) 
+        .filter(route => route[1].toLowerCase().includes(filter.toLowerCase()))
         .forEach(route => {
             const item = document.createElement("div");
             item.className = "bus-item";
@@ -70,35 +91,35 @@ function renderRoutes(filter = "") {
 
             const span = document.createElement("span");
             span.className = "bus-text";
-            span.textContent = route[1]; 
+            span.textContent = route[1];
             item.appendChild(svg);
             item.appendChild(span);
 
             item.addEventListener("click", () => {
                 document.querySelectorAll(".bus-item").forEach(el => el.classList.remove("selected"));
-                item.classList.add("selected"); 
-                selectedRoute = route[0]; 
+                item.classList.add("selected");
+                selectedRoute = route[0];
             });
 
             busList.appendChild(item);
         });
 }
 
-renderRoutes(); 
+renderRoutes();
 
 searchInput.addEventListener("input", () => {
-    renderRoutes(searchInput.value); 
+    renderRoutes(searchInput.value);
 });
 
 clearSearch.addEventListener("click", () => {
-    searchInput.value = ""; 
+    searchInput.value = "";
     renderRoutes();
 });
 
 saveBtn.addEventListener("click", () => {
     if (selectedRoute) {
-        const routeNumber = selectedRoute.replace("route", ""); 
-        localStorage.setItem("defaultBusRoute", `route${routeNumber}`); 
+        const routeNumber = selectedRoute.replace("route", "");
+        localStorage.setItem("defaultBusRoute", `route${routeNumber}`);
         busSelectSave.classList.remove("hidden");
     } else {
         busSelectCancel.classList.remove("hidden");
