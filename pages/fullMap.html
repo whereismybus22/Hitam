@@ -388,8 +388,29 @@
         let busMarkers = {
             bus1: null,
             bus2: null,
-            bus3: null
+            bus3: null,
+            bus4: null,
+            bus5: null,
+            bus6: null,
+            bus7: null,
+            bus8: null,
+            bus9: null,
+            bus10: null,
+            bus11: null,
+            bus12: null,
+            bus13: null,
+            bus14: null,
+            bus15: null,
+            bus16: null,
+            bus17: null,
+            bus18: null,
+            bus19: null,
+            bus20: null,
+            bus21: null,
+            bus22: null,
+            bus23: null
         };
+
         let deviceLocationMarker;
         let markersClusterGroup = L.markerClusterGroup({
             // Customize cluster icon
@@ -439,9 +460,30 @@
 
                 const busData = {
                     bus1: filterBusData(data, 1190),
-                    bus2: filterBusData(data, 1191),
-                    bus3: filterBusData(data, 1192)
+                    bus2: filterBusData(data, 1190),
+                    bus3: filterBusData(data, 1190),
+                    bus4: filterBusData(data, 1190),
+                    bus5: filterBusData(data, 1190),
+                    bus6: filterBusData(data, 1190),
+                    bus7: filterBusData(data, 1190),
+                    bus8: filterBusData(data, 1190),
+                    bus9: filterBusData(data, 1190),
+                    bus10: filterBusData(data, 1190),
+                    bus11: filterBusData(data, 1190),
+                    bus12: filterBusData(data, 1190),
+                    bus13: filterBusData(data, 1190),
+                    bus14: filterBusData(data, 1190),
+                    bus15: filterBusData(data, 1190),
+                    bus16: filterBusData(data, 1190),
+                    bus17: filterBusData(data, 1190),
+                    bus18: filterBusData(data, 1190),
+                    bus19: filterBusData(data, 1190),
+                    bus20: filterBusData(data, 1190),
+                    bus21: filterBusData(data, 1190),
+                    bus22: filterBusData(data, 1190),
+                    bus23: filterBusData(data, 1190)
                 };
+
 
                 updateBusMarkers(busData);
 
@@ -469,7 +511,7 @@
 
         async function updateDeviceLocationMarker() {
             try {
-                
+
                 if (!localStorage.getItem("userDeviceLocation")) {
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(
@@ -526,7 +568,28 @@
                 bus1: '/img/one.svg',
                 bus2: '/img/two.svg',
                 bus3: '/img/three.png',
+                bus4: '/img/four.svg',
+                bus5: '/img/five.svg',
+                bus6: '/img/six.png',
+                bus7: '/img/seven.svg',
+                bus8: '/img/eight.svg',
+                bus9: '/img/nine.png',
+                bus10: '/img/ten.svg',
+                bus11: '/img/eleven.svg',
+                bus12: '/img/twelve.png',
+                bus13: '/img/thirteen.svg',
+                bus14: '/img/fourteen.svg',
+                bus15: '/img/fifteen.png',
+                bus16: '/img/sixteen.svg',
+                bus17: '/img/seventeen.svg',
+                bus18: '/img/eighteen.png',
+                bus19: '/img/nineteen.svg',
+                bus20: '/img/twenty.svg',
+                bus21: '/img/twentyone.png',
+                bus22: '/img/twentytwo.svg',
+                bus23: '/img/twentythree.svg',
             };
+
 
             // Clear previous markers from the cluster group
             markersClusterGroup.clearLayers();
