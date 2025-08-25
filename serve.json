@@ -45,8 +45,6 @@
     { "source": "/route22", "destination": "/mainMap/index.html" },
     { "source": "/route22/", "destination": "/mainMap/index.html" },
     { "source": "/route23", "destination": "/mainMap/index.html" },
-    { "source": "/route23/", "destination": "/mainMap/index.html" },
-    { "source": "/route24", "destination": "/mainMap/index.html" },
-    { "source": "/route24/", "destination": "/mainMap/index.html" }
+    { "source": "/route23/", "destination": "/mainMap/index.html" }
   ]
 }

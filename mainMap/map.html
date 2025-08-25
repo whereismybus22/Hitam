@@ -109,9 +109,9 @@
             margin-top: 10px;
         }
 
-#info-btn {
-  position: absolute;
-}
+        #info-btn {
+            position: absolute;
+        }
 
         #layerButton.active {
             padding: 0px;
@@ -213,7 +213,7 @@
         .info-toggle-btn {
             position: fixed;
             left: 6px;
-            
+
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -443,12 +443,12 @@
         .location-icon {
             margin-right: 10px;
         }
-        .wrapper2 {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-}
 
+        .wrapper2 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
     </style>
 </head>
 
@@ -492,51 +492,52 @@
 
     </header>
 
-<div class="map-section">
-    <div id="map" class="wrapper">
-        <div class="wrapper2" style="display: flex; justify-content: space-between; width: 100%;">
-            <div id="info-btn" class="info-toggle-btn">
-                <span class="info-text-wrapper">
-                    <span class="info-text">
-                        <a href="https://youtu.be/bhtDIswoDvo?si=0SIyQroD3Su_fo-8" target="_blank">Click Here</a> to Know
-                        How this page works !
+    <div class="map-section">
+        <div id="map" class="wrapper">
+            <div class="wrapper2" style="display: flex; justify-content: space-between; width: 100%;">
+                <div id="info-btn" class="info-toggle-btn">
+                    <span class="info-text-wrapper">
+                        <span class="info-text">
+                            <a href="https://youtu.be/bhtDIswoDvo?si=0SIyQroD3Su_fo-8" target="_blank">Click Here</a> to
+                            Know
+                            How this page works !
+                        </span>
                     </span>
-                </span>
-                <span class="icon-wrapper">
-                    <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon right-arrow" height="24"
-                        width="24" alt="">
-                    <img src="../assets/images/right-arrow.png" class="arrow-icon left-arrow" height="24" width="24"
-                        alt="">
-                </span>
+                    <span class="icon-wrapper">
+                        <img src="../assets/images/left_expansion_icon.svg" class="arrow-icon right-arrow" height="24"
+                            width="24" alt="">
+                        <img src="../assets/images/right-arrow.png" class="arrow-icon left-arrow" height="24" width="24"
+                            alt="">
+                    </span>
+                </div>
+                <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
+                    <img id="layerButtonImg" src="../img/toSatellite.svg" height="25" width="25" alt="Layers">
+                </div>
             </div>
-            <div id="layerButton" class="control-btn" onclick="toggleMapLayer()">
-                <img id="layerButtonImg" src="../img/toSatellite.svg" height="25" width="25" alt="Layers">
+            <div class="wrapper">
+                <div class="refresh-button control-btn">
+                    <img id="refresh" src="../assets/images/refresh_page_icon.png" height="25" width="25"
+                        alt="Set User Bus">
+                </div>
             </div>
-        </div>
-        <div class="wrapper">
-            <div class="refresh-button control-btn">
-                <img id="refresh" src="../assets/images/refresh_page_icon.png" height="25" width="25"
-                    alt="Set User Bus">
+            <div class="wrapper">
+                <div class="set-user-bus-button control-btn" onclick="setUserBus()">
+                    <img src="../img/follow_user.png" height="25" width="25" alt="Set User Bus">
+                </div>
             </div>
-        </div>
-        <div class="wrapper">
-            <div class="set-user-bus-button control-btn" onclick="setUserBus()">
-                <img src="../img/follow_user.png" height="25" width="25" alt="Set User Bus">
+            <div class="wrapper">
+                <div class="directions-toGoogleMap control-btn">
+                    <img id="directionsGoogleMap" src="../img/directions.png" height="25" width="25"
+                        alt="Directions To Google Map ">
+                </div>
             </div>
-        </div>
-        <div class="wrapper">
-            <div class="directions-toGoogleMap control-btn">
-                <img id="directionsGoogleMap" src="../img/directions.png" height="25" width="25"
-                    alt="Directions To Google Map ">
-            </div>
-        </div>
-        <div class="wrapper">
-            <div class="bus-miss control-btn">
-                <img id="busMiss" src="../img/busMiss.png" height="25" width="25" alt="Buss Miss ">
+            <div class="wrapper">
+                <div class="bus-miss control-btn">
+                    <img id="busMiss" src="../img/busMiss.png" height="25" width="25" alt="Buss Miss ">
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <div class="follow-marker-button" onclick="toggleFollowMarker()">
@@ -742,9 +743,30 @@
 <script>
     const allRoutes = [
         ["route1", "Route 1", 1190],
-        ["route2", "Route 2", 1191],
-        ["route3", "Route 3", 1192]
+        ["route2", "Route 2", 1190],
+        ["route3", "Route 3", 1190],
+        ["route4", "Route 4", 1190],
+        ["route5", "Route 5", 1190],
+        ["route6", "Route 6", 1190],
+        ["route7", "Route 7", 1190],
+        ["route8", "Route 8", 1190],
+        ["route9", "Route 9", 1190],
+        ["route10", "Route 10", 1190],
+        ["route11", "Route 11", 1190],
+        ["route12", "Route 12", 1190],
+        ["route13", "Route 13", 1190],
+        ["route14", "Route 14", 1190],
+        ["route15", "Route 15", 1190],
+        ["route16", "Route 16", 1190],
+        ["route17", "Route 17", 1190],
+        ["route18", "Route 18", 1190],
+        ["route19", "Route 19", 1190],
+        ["route20", "Route 20", 1190],
+        ["route21", "Route 21", 1190],
+        ["route22", "Route 22", 1190],
+        ["route23", "Route 23", 1190]
     ];
+
     const thisRoute = localStorage.getItem('thisRoute');
     const matchedRoute = allRoutes.find(routeArr => routeArr[0] === thisRoute);
 
@@ -770,7 +792,7 @@
     function setUserBus() {
         if (isUserBusSet == false) {
             if (localStorage.getItem('userDeviceLocation')) {
-                 // Toggle the state
+                // Toggle the state
                 isUserBusSet = true;
 
                 const bounds = L.latLngBounds([
