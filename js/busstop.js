@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
- 
 
-  const mlrit = { lat: 17.174391962132304, lng: 80.16624701534289 }; 
+
+  const mlrit = { lat: 17.174391962132304, lng: 80.16624701534289 };
   const map = new google.maps.Map(document.getElementById("map"), {
     center: mlrit,
     zoom: 18,
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     draggable: true,
     icon: {
       url: "../assets/images/default_bus_stop_icon.svg",
-  scaledSize: new google.maps.Size(40, 40)
+      scaledSize: new google.maps.Size(40, 40)
     }
   });
 
@@ -77,62 +77,70 @@ document.addEventListener("DOMContentLoaded", function () {
       : "../assets/images/satellite_layer_icon.png";
   });
 
-  document
-    .getElementById("current-location")
-    .addEventListener("click", function () {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          map.panTo(pos);
-          marker.setPosition(pos);
-          reverseGeocode(pos.lat, pos.lng);
-        });
-      }
-    });
+  function showLoader() {
+    document.getElementById("loadingOverlay").classList.remove("hidden");
+  }
+
+  function hideLoader() {
+    document.getElementById("loadingOverlay").classList.add("hidden");
+  }
+
+  document.getElementById("current-location").addEventListener("click", function () {
+    showLoader();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        map.panTo(pos);
+        marker.setPosition(pos);
+        reverseGeocode(pos.lat, pos.lng);
+      });
+    }
+    showLoader();
+  });
 
   document.getElementById("refresh").addEventListener("click", function () {
     location.reload();
   });
 
 
-    // Save and Cancel button
-    document.getElementById("save-btn").addEventListener("click", function () {
-        const pos = marker.getPosition();
-        const busStopData = { lat: pos.lat(), lng: pos.lng() };
+  // Save and Cancel button
+  document.getElementById("save-btn").addEventListener("click", function () {
+    const pos = marker.getPosition();
+    const busStopData = { lat: pos.lat(), lng: pos.lng() };
 
-        localStorage.setItem("defaultBusStop", JSON.stringify(busStopData));
+    localStorage.setItem("defaultBusStop", JSON.stringify(busStopData));
 
-        document.getElementById("busSelectSave").classList.remove("hidden");
-    });
-    document.getElementById("cancel-btn").addEventListener("click", function () {
-        const busStopData = localStorage.getItem("defaultBusStop");
+    document.getElementById("busSelectSave").classList.remove("hidden");
+  });
+  document.getElementById("cancel-btn").addEventListener("click", function () {
+    const busStopData = localStorage.getItem("defaultBusStop");
 
-        if (busStopData) {
-            window.location.href = "/index.html"; 
-        } else {
-            document.getElementById("busSelectCancel").classList.remove("hidden");
-        }
-    });
-      document.getElementById("ackSaveok").addEventListener("click", function () {
+    if (busStopData) {
+      window.location.href = "/index.html";
+    } else {
+      document.getElementById("busSelectCancel").classList.remove("hidden");
+    }
+  });
+  document.getElementById("ackSaveok").addEventListener("click", function () {
     document.getElementById("busSelectSave").classList.add("hidden");
-    window.location.href = "/index.html"; 
-});
-    document.getElementById("ackSaveok").addEventListener("click", function () {
-        document.getElementById("busSelectSave").classList.add("hidden");
-    });
-    document.getElementById("saveClosePopup").addEventListener("click", function () {
-        document.getElementById("busSelectSave").classList.add("hidden");
-    });
-    document.getElementById("ackCancelok").addEventListener("click", function () {
-        document.getElementById("busSelectCancel").classList.add("hidden");
-    });
-    document.getElementById("cancelClosePopup").addEventListener("click", function () {
-        document.getElementById("busSelectCancel").classList.add("hidden");
-    });
- 
+    window.location.href = "/index.html";
+  });
+  document.getElementById("ackSaveok").addEventListener("click", function () {
+    document.getElementById("busSelectSave").classList.add("hidden");
+  });
+  document.getElementById("saveClosePopup").addEventListener("click", function () {
+    document.getElementById("busSelectSave").classList.add("hidden");
+  });
+  document.getElementById("ackCancelok").addEventListener("click", function () {
+    document.getElementById("busSelectCancel").classList.add("hidden");
+  });
+  document.getElementById("cancelClosePopup").addEventListener("click", function () {
+    document.getElementById("busSelectCancel").classList.add("hidden");
+  });
+
 
   // Modal
   const modal = document.getElementById("info-modal");
@@ -175,7 +183,7 @@ clearSearch.addEventListener("click", () => {
   searchInput.focus();
 });
 
-window.onload = function() {
+window.onload = function () {
   const infoBtn = document.getElementById("info-btn");
 
   const isFirstVisit = localStorage.getItem("visitedBusStopPage") === null;
@@ -184,8 +192,8 @@ window.onload = function() {
 
   if (isFirstVisit) {
     setTimeout(() => {
-    infoBtn.classList.add("expanded");
-    localStorage.setItem("visitedBusStopPage", "true");
+      infoBtn.classList.add("expanded");
+      localStorage.setItem("visitedBusStopPage", "true");
     }, 400);
   }
 
