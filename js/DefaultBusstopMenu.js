@@ -81,22 +81,40 @@ document.addEventListener("DOMContentLoaded", function () {
       ? "../assets/images/hybrid_layer_icon.png"
       : "../assets/images/satellite_layer_icon.png";
   });
+  function showLoader() {
+    document.getElementById("loadingOverlay").classList.remove("hidden");
+  }
 
-  document
-    .getElementById("current-location")
-    .addEventListener("click", function () {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          map.panTo(pos);
-          marker.setPosition(pos);
-          reverseGeocode(pos.lat, pos.lng);
-        });
+  function hideLoader() {
+    document.getElementById("loadingOverlay").classList.add("hidden");
+  }
+
+  document.getElementById("current-location").addEventListener("click", function () {
+  showLoader();
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        map.panTo(pos);
+        marker.setPosition(pos);
+        reverseGeocode(pos.lat, pos.lng);
+        hideLoader();
+      },
+      function (error) {
+        hideLoader();
+        alert("Could not get your location. Please enable location services and try again.");
+        console.error("Geolocation error:", error.message);
       }
-    });
+    );
+  } else {
+    hideLoader();
+    alert("Geolocation is not supported by this browser.");
+  }
+});
 
   document.getElementById("refresh").addEventListener("click", function () {
     location.reload();
