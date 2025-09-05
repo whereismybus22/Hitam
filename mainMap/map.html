@@ -773,6 +773,10 @@
     const thisRouteDisplayName = matchedRoute ? matchedRoute[1] : null;
     const thisRouteID = matchedRoute ? matchedRoute[2] : null;
 
+    if(thisRoute === "route23"){
+        window.location='/index2.html';
+    }
+
     if (thisRouteDisplayName) {
         document.getElementById('routeNumber').textContent = thisRouteDisplayName;
     } else {
