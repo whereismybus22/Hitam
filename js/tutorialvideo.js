@@ -1,3 +1,3 @@
 function openTutorial() {
-      window.open("https://youtu.be/bhtDIswoDvo?si=0SIyQroD3Su_fo-8", "_blank");
+      window.open("https://youtu.be/jLcYktp3Iz0", "_blank");
 }
