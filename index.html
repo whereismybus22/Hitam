@@ -15,6 +15,7 @@
 			const correctPassword = 'HITM@2001';
 			if (username === correctUsername && password === correctPassword) {
 				localStorage.setItem('login', 'true');
+                sessionStorage.setItem('pwaPageSkip', true);
 			}
 		}
 
