@@ -102,8 +102,8 @@ function calculateDistanceTimeSpeed(locationOne, locationTwo, speed) {
 async function fetchBusLocation() {
 
   // const auth = await hypegpstracker(whereismybus);
-  const auth = '$2y$10$qOgQKmfSuv3Z8TraO3fl/OTrbCvrHzi1u.QCbveqCbJqCYk22HIqS';
-  const url = `https://portal.hypegpstracker.com/api/get_devices?user_api_hash=${auth}`;
+  const auth = '$2y$10$mUiiGZjTiDatqMEvRhlRAeqVpQlLAW5psz/IchLS/JzBh0HQ9uHDy';
+  const url = `https://platform.hypegps.com/api/get_devices?user_api_hash=${auth}`;
 
   try {
     const response = await fetch(url);
@@ -256,7 +256,7 @@ async function fetchBusLocation() {
 }
 
 function filterData(data) {
-  const mlrInstitute = data.find((entry) => entry.title === "Ungrouped");
+  const mlrInstitute = data.find((entry) => entry.title === "ao@hitam.org");
   if (!mlrInstitute) return null;
 
   const item = mlrInstitute.items.find((item) => item.id === thisRouteID);
